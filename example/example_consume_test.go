@@ -7,7 +7,7 @@ import (
 	"time"
 
 	amqp "github.com/rabbitmq/amqp091-go"
-	"rabbitmqgo/rabbitmq"
+	"github.com/Maximumsoft-Co-LTD/rabbitmqgo/rabbitmq"
 )
 
 func ExampleClient_Consume() {

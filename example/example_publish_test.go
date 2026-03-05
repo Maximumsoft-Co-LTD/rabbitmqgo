@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"rabbitmqgo/rabbitmq"
+	"github.com/Maximumsoft-Co-LTD/rabbitmqgo/rabbitmq"
 )
 
 // ExampleNew creates a client. Requires RabbitMQ at localhost:5672 for success.
