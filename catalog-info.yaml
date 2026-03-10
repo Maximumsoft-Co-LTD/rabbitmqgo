@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: rabbitmqgo
+  description: Go RabbitMQ client with connection reuse, channel pooling, and auto-reconnect. Built on amqp091-go. Go 1.21+, RabbitMQ 2.0+.
+  annotations:
+    backstage.io/techdocs-ref: dir:docs
+spec:
+  type: library
+  owner: group:default/platform
+  lifecycle: experimental
+  system: opsdex
