@@ -4,7 +4,7 @@ metadata:
   name: rabbitmqgo
   description: Go RabbitMQ client with connection reuse, channel pooling, and auto-reconnect. Built on amqp091-go. Go 1.21+, RabbitMQ 2.0+.
   annotations:
-    backstage.io/techdocs-ref: dir:docs
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: library
   owner: group:default/platform
