@@ -123,3 +123,17 @@ func (mr *MockClientMockRecorder) PublishWithReply(ctx, queue, payload, result a
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PublishWithReply", reflect.TypeOf((*MockClient)(nil).PublishWithReply), ctx, queue, payload, result)
 }
+// DeleteQueue mocks base method.
+func (m *MockClient) DeleteQueue(ctx context.Context, name string, ifUnused, ifEmpty, noWait bool) (int, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "DeleteQueue", ctx, name, ifUnused, ifEmpty, noWait)
+	ret0, _ := ret[0].(int)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// DeleteQueue indicates an expected call of DeleteQueue.
+func (mr *MockClientMockRecorder) DeleteQueue(ctx, name, ifUnused, ifEmpty, noWait any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DeleteQueue", reflect.TypeOf((*MockClient)(nil).DeleteQueue), ctx, name, ifUnused, ifEmpty, noWait)
+}

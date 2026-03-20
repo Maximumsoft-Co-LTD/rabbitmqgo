@@ -15,4 +15,5 @@ type ClientInterface interface {
 	PublishWithOptions(ctx context.Context, queue string, body interface{}, opts *PublishOpts) error
 	PublishWithReply(ctx context.Context, queue string, payload interface{}, result interface{}) error
 	Consume(ctx context.Context, queue string, handler DeliveryHandler, opts *ConsumeOpts) error
+	DeleteQueue(ctx context.Context, name string, ifUnused, ifEmpty, noWait bool) (int, error)
 }

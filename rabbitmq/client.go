@@ -1,6 +1,8 @@
 package rabbitmq
 
 import (
+	"context"
+	"fmt"
 	"sync"
 
 	amqp "github.com/rabbitmq/amqp091-go"
@@ -104,4 +106,19 @@ func (c *Client) HealthCheck() error {
 	}
 	c.releaseChannel(ch, true)
 	return nil
+}
+
+// DeleteQueue removes a queue from RabbitMQ server.
+func (c *Client) DeleteQueue(ctx context.Context, name string, ifUnused, ifEmpty, noWait bool) (int, error) {
+	if c == nil {
+		return 0, fmt.Errorf("rabbitmq client not initialized")
+	}
+	ch, err := c.acquireChannel()
+	if err != nil {
+		return 0, err
+	}
+	// We don't need context for QueueDelete in amqp091-go, as it's synchronous on the channel,
+	// but wrapping it for interface consistency.
+	defer c.releaseChannel(ch, true)
+	return ch.QueueDelete(name, ifUnused, ifEmpty, noWait)
 }
