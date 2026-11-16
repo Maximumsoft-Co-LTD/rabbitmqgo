@@ -1,0 +1,10 @@
+# pre-commit hooks. One-time setup per clone:
+#   brew install pre-commit   (or: pipx install pre-commit)
+#   pre-commit install
+# gitleaks blocks a commit that adds a secret. False positive: add its fingerprint to .gitleaksignore.
+repos:
+  # Secret scan before commit. One-time setup per clone: pipx install pre-commit && pre-commit install
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks
